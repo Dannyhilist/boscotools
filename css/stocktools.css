@@ -1,0 +1,101 @@
+body {
+    background-image: url(./../img/bg.jpg);
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h2 {
+    display: block;
+    position: relative;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-bottom: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(9, 146, 82, 0.7);
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: rgb(9, 146, 82, 0.7);
+    border-bottom: 1px solid white;
+}
+
+table td {
+    border-bottom: 1px solid #ddd;
+}
+
+table td:last-child {
+    text-align: center;
+}
+
+.back_btn {
+    background-color: #242524;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.edit_btn {
+    color: #454d18;
+    text-decoration: none;
+    cursor: pointer;
+}
+.delete_btn {
+    color: #8a1e10;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.edit_btn:hover {
+    font-weight: bold;
+}
+.delete_btn:hover {
+    font-weight: bold;
+}
+
+/* button {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+} */
+
+button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}

@@ -1,0 +1,122 @@
+/* Estilos para o container principal */
+body {
+    background-image: url(./../img/bg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body, html {
+    font-family: century gothic;;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+hr {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Centraliza o conteúdo dentro do container */
+}
+
+/* Estilos para o formulário */
+.form-estoque {
+    margin-bottom: 20px;
+    text-align: left; /* Alinha o texto à esquerda dentro do formulário */
+}
+
+.form-estoque label {
+    font-weight: bold;
+}
+
+.form-estoque input[type="number"],
+.form-estoque input[type="text"],
+.form-estoque select {
+    width: calc(100% - 16px); /* Ajusta a largura para compensar o padding */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+}
+
+.form-estoque input[type="submit"] {
+    background-color: #242524;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.form-estoque input[type="submit"]:hover {
+    background-color: rgb(9, 146, 82, 0.9);
+    font-size: 101%;
+    font-weight: bold;
+}
+
+/* Estilos para as mensagens de feedback para os usuários */
+.mensagem {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.mensagem {
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.mensagem.success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: rgb(9, 146, 82, 0.7);
+}
+
+.mensagem.error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #701c11;
+}
+
+/* Estilos para o botão de ver estoque */
+.btn-ver-estoque {
+    display: block;
+    position: relative;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.btn-ver-estoque a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #242524;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+
+}
+
+.btn-ver-estoque a:hover {
+    background-color: #0056b3;
+    font-size: 101%;
+    font-weight: bold;
+}

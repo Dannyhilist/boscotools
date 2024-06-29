@@ -1,0 +1,36 @@
+/* Reseta margens e preenchimentos para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corrige a exibição de elementos embutidos como `inline-block` */
+html, body, div, span,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+a, code,
+ol, ul, li,
+form, fieldset, legend,
+input, textarea, button,
+th, td, table {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Normaliza a aparência de elementos HTML */
+body, button, input, select, textarea {
+    font-family: Arial, sans-serif;
+}
+
+/* Corrige o espaçamento entre elementos em listas */
+ol, ul {
+    list-style: none;
+}
+
+/* Remove decoração padrão de links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
