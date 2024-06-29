@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Danny Javier Camejo Itriago">
+    <meta name="description" content="Sistema de cadastro de materias de informática para estoque de lojas.">
+    <meta http-equiv="Content-Language" content="pt-BR">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bosco Tools</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Adicionar Item ao Estoque</h2>
+        <hr>
+        <form id="formEstoque" class="form-estoque" onsubmit="return validarFormulario()">
+            <label for="nome">Item</label><br>
+            <select id="nome" name="nome" class="input-item" required>
+                <option value="" disabled selected>Selecione um item</option>
+                <option value="Processador Intel Core i7">Processador Intel Core i7</option>
+                <option value="Memória RAM DDR4 8GB">Memória RAM DDR4 8GB</option>
+                <option value="SSD 500GB">SSD 500GB</option>
+                <option value="Placa Mãe ATX">Placa Mãe ATX</option>
+                <option value="Gabinete Mid Tower">Gabinete Mid Tower</option>
+                <option value="Fonte de Alimentação 650W">Fonte de Alimentação 650W</option>
+                <option value="Placa de Vídeo NVIDIA GTX 1660">Placa de Vídeo NVIDIA GTX 1660</option>
+                <option value="Monitor LED 24">Monitor LED 24"</option>
+                <option value="Teclado Mecânico">Teclado Mecânico</option>
+                <option value="Mouse Óptico Gamer">Mouse Óptico Gamer</option>
+                <option value="Roteador Wi-Fi Dual Band">Roteador Wi-Fi Dual Band</option>
+                <option value="Switch Gigabit 8 Portas">Switch Gigabit 8 Portas</option>
+                <option value="HD Externo 1TB">HD Externo 1TB</option>
+                <option value="Webcam Full HD">Webcam Full HD</option>
+                <option value="Headset com Microfone">Headset com Microfone</option>
+                <option value="Impressora Multifuncional">Impressora Multifuncional</option>
+                <option value="Cartucho de Tinta Preto">Cartucho de Tinta Preto</option>
+                <option value="Toner para Impressora Laser">Toner para Impressora Laser</option>
+                <option value="Estabilizador de Tensão">Estabilizador de Tensão</option>
+                <option value="Nobreak 1200VA">Nobreak 1200VA</option>
+                <option value="Cabo HDMI 2m">Cabo HDMI 2m</option>
+                <option value="Adaptador USB para Ethernet">Adaptador USB para Ethernet</option>
+                <option value="Ventilador Cooler para CPU">Ventilador Cooler para CPU</option>
+                <option value="Pasta Térmica para CPU">Pasta Térmica para CPU</option>
+                <option value="Kit Ferramentas para PC">Kit Ferramentas para PC</option>
+                <option value="Pendrive 64GB">Pendrive 64GB</option>
+                <option value="Leitor de Cartões USB">Leitor de Cartões USB</option>
+                <option value="Antena Wi-Fi USB">Antena Wi-Fi USB</option>
+                <option value="Base para Notebook com Cooler">Base para Notebook com Cooler</option>
+                <option value="Carregador Universal para Notebook">Carregador Universal para Notebook</option>
+            </select><br><br>
+            </select><br><br>
+
+            <label for="quantidade">Quantidade:</label><br>
+            <input type="number" id="quantidade" name="quantidade" class="input-quantidade" required><br><br>
+
+            <label for="descricao">Descrição:</label><br>
+            <input type="text" id="descricao" name="descricao" class="input-descricao"><br><br>
+
+            <label for="preco_unitario">Preço Unitário (R$):</label><br>
+            <input type="number" step="0.01" id="preco_unitario" name="preco_unitario" class="input-preco" required><br><br>
+
+            <label for="data_cadastro">Data de Armazenamento:</label><br>
+            <input type="date" id="data_cadastro" name="data_cadastro" class="input-data" required><br><br>
+
+            <input type="submit" value="Adicionar Item" class="btn-submit">
+        </form>
+        <div id="mensagem" class="mensagem"></div>
+    </div>
+    <hr>
+    <div class="container">
+        <button class="btn-ver-estoque">
+            <a href="php/stocktools.php" target="_blank">VER ESTOQUE ATUAL</a>
+        </button>
+    </div>
+
+
+    <!--validação em javascript para que seja necessário preencher todos os campos do formulário-->
+    <script>
+        function validarFormulario() {
+            var nome = document.getElementById('nome').value;
+            var quantidade = document.getElementById('quantidade').value;
+            var preco_unitario = document.getElementById('preco_unitario').value;
+            var data_cadastro = document.getElementById('data_cadastro').value;
+            var mensagem = document.getElementById('mensagem');
+
+            if (nome === "" || quantidade === "" || preco_unitario === "" || data_cadastro === "") {
+                mensagem.textContent = "Por favor, preencha todos os campos.";
+                mensagem.style.color = "red";
+                return false;
+            }
+
+            enviarFormulario();
+            return false;
+        }
+
+        function enviarFormulario() {
+            var form = document.getElementById('formEstoque');
+            var formData = new FormData(form);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'php/insert_item.php', true);
+
+            xhr.onload = function() {
+                var mensagem = document.getElementById('mensagem');
+                if (xhr.status === 200) {
+                    mensagem.textContent = xhr.responseText;
+                    mensagem.style.color = "green";
+                    form.reset();
+                } else {
+                    mensagem.textContent = "Ocorreu um erro ao adicionar o item.";
+                    mensagem.style.color = "red";
+                }
+            };
+
+            xhr.send(formData);
+        }
+    </script>
+
+</body>
+</html>
